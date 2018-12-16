@@ -1,0 +1,5 @@
+[game]
+C:\Users\Arcade\Downloads\Resident Evil 2 (Disc 1)\Resident Evil 2 (Disc 1).cue
+Resident Evil
+1
+1998
