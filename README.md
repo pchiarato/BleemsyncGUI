@@ -1,0 +1,2 @@
+# BleemsyncGUI
+Automating Bleemsync process.
