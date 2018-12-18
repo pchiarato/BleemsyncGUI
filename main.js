@@ -3,15 +3,17 @@
 // let fs = nw.require('fs');
 let fs = require('fs');
 let gui = require('nw.gui');
-let sqlite3 = require('./node_modules/sqlite3').verbose();
-let db = new sqlite3.Database('regional');
+// let sqlite3 = require('sqlite3').verbose();
+// let db = new sqlite3.Database('./db/regional.db');
+let sql = require('./db/sql');
+let errorLog = function(errorMessage) {
+  fs.writeFile('./logs/sql.log', `Error: ${errorMessage}\n`, fsErr => {
+    console.log(fsErr);
+  });
+};
+// CREATE DATA BASE TABLES
 
-db.serialize(() => {
-  db.run(
-    'CREATE TABLE IF NOT EXIST DISC (DISC_ID INTEGER PRIMARY KEY AUTOINCREMENT, GAME_ID INTEGER NOT NULL, DISC_NUMBER INTEGER NOT NULL,BASENAME TEXT)'
-  );
-});
-
+// db.close();
 // var win = gui.Window.get();
 
 let menuBar = new nw.Menu({ type: 'menubar' });
@@ -120,6 +122,8 @@ function createIniFile() {
   let players = getEl('players').value;
   let year = getEl('year').value;
   console.log(discs, title, players, year);
+  // TODO: separate this block into an outer function/file
+  // the following block of code writes out a file called Game.ini with the needed information for the database file.
   fs.writeFile(
     './gameDir/Game.ini',
     `[game]\nDiscs=${discs}\nTitle=${title}\nPublisher=${publisher}\nPlayers=${players}\nYear=${year}`,
@@ -130,6 +134,7 @@ function createIniFile() {
     }
   );
   let workDirectory = getEl('workdirectory').value;
+  // TODO: separate this block into an outer function/file
   fs.readdir(workDirectory, (err, files) => {
     if (err) {
       throw new Error('Error while reading directory ', err);
@@ -153,7 +158,15 @@ function createIniFile() {
     });
     console.log('files => ', files);
   });
+  // END:TODO
   console.log(workDirectory);
+  sql();
+  // db.run('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 2, 'SLUS-00594'], err => {
+  //   if (err) {
+  //     console.log('error ', err);
+  //   }
+  // });
+  // insert Game.ini info into the db
 }
 
 //v // Remove the tray
