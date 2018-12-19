@@ -1,1 +1,4 @@
-Error: anything
+2018-12-19T15:26:00.066Z: Created "DISC" table
+2018-12-19T15:26:00.109Z: Created "GAME" table
+2018-12-19T15:26:00.109Z: Created "INDEX" table
+2018-12-19T15:26:00.126Z: Inserted values into "DISC" table

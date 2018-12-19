@@ -1,20 +1,6 @@
-// let os = require('os');
-// document.write('You are running on ', os.platform());
-// let fs = nw.require('fs');
 let fs = require('fs');
 let gui = require('nw.gui');
-// let sqlite3 = require('sqlite3').verbose();
-// let db = new sqlite3.Database('./db/regional.db');
 let sql = require('./db/sql');
-let errorLog = function(errorMessage) {
-  fs.writeFile('./logs/sql.log', `Error: ${errorMessage}\n`, fsErr => {
-    console.log(fsErr);
-  });
-};
-// CREATE DATA BASE TABLES
-
-// db.close();
-// var win = gui.Window.get();
 
 let menuBar = new nw.Menu({ type: 'menubar' });
 let fileSubMenu = new nw.Menu();
@@ -160,7 +146,7 @@ function createIniFile() {
   });
   // END:TODO
   console.log(workDirectory);
-  sql();
+  // sql();
   // db.run('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 2, 'SLUS-00594'], err => {
   //   if (err) {
   //     console.log('error ', err);
