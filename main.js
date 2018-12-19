@@ -1,5 +1,6 @@
 let fs = require('fs');
 let gui = require('nw.gui');
+// let log = require('./logs/sql.log');
 let sql = require('./db/sql');
 
 let menuBar = new nw.Menu({ type: 'menubar' });
@@ -86,18 +87,21 @@ function getEl(id) {
   return el;
 }
 function createIniFile() {
+  let discList = [];
   let discs = getEl('discs').value;
   if (/;/.test(discs)) {
-    let discList = discs.split(';');
-    discList = discList.map(l => l.split('\\'));
+    let multipleDiscs = discs.split(';');
+    multipleDiscs = multipleDiscs.map(l => l.split('\\'));
     discs = '';
-    discList.forEach((cueFile, i, list) => {
-      discs += cueFile.pop();
+    multipleDiscs.forEach((cueFile, i, list) => {
+      let file = cueFile.pop();
+      discList.push(file);
+      discs += file;
       if (i !== list.length - 1) {
         discs += ',';
       }
     });
-    console.log('dList ', discList);
+    console.log('dList ', multipleDiscs);
   } else {
     let cueFile = discs.split('\\');
     let discLength = cueFile.length;
@@ -144,6 +148,12 @@ function createIniFile() {
     });
     console.log('files => ', files);
   });
+
+  if (discList.length > 0) {
+    discList.forEach(f => {
+      console.log('file name ', f);
+    });
+  }
   // END:TODO
   console.log(workDirectory);
   // sql();
