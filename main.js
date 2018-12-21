@@ -1,6 +1,6 @@
 let fs = require('fs');
 let gui = require('nw.gui');
-// let log = require('./logs/sql.log');
+let log = require('./utilities/log');
 let sql = require('./db/sql');
 
 let menuBar = new nw.Menu({ type: 'menubar' });
@@ -148,15 +148,34 @@ function createIniFile() {
     });
     console.log('files => ', files);
   });
-
   if (discList.length > 0) {
-    discList.forEach(f => {
-      console.log('file name ', f);
+    discList.forEach(f, i => {
+      let data = [folderNumber, i + 1, f];
+      sql.dbSetup().then(_ => {
+        sql.dbInsert('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', data, err => {
+          if (err) {
+            log('SQL ERROR - ', err);
+            console.log(err);
+          }
+          log('Inserted data into Disc');
+        });
+        console.log('file name ', f);
+      });
+    });
+  } else {
+    sql.dbSetup().then(_ => {
+      sql.dbInsert('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 1, discs], err => {
+        if (err) {
+          log('SQL ERROR - ', err);
+          console.log('Error ', err);
+        }
+        log('Inserted data into Disc');
+      });
     });
   }
   // END:TODO
-  console.log(workDirectory);
   // sql();
+
   // db.run('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 2, 'SLUS-00594'], err => {
   //   if (err) {
   //     console.log('error ', err);
