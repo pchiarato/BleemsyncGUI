@@ -1,19 +1,16 @@
 let log = require('../utilities/log');
 let sqlite3 = require('sqlite3').verbose();
-// let db = new sqlite3.Database('./db/regional.db');
-let sqliteDB = {
-  dbInstance: '',
+const sql = {
   dbConnect: () => {
-    this.dbInstance = new sqlite3.Database('./db/regional.db');
-    return new Promise(resolve => {
-      resolve(this.dbInstance);
+    return new Promise((resolve, reject) => {
+      let db = new sqlite3.Database('./db/regional.db');
+      resolve(db);
     });
   },
-  dbSetup: () => {
-    this.dbConnect().then(dbInstance => {
-      let db = dbInstance;
-      db.serialize(() => {
-        db.run(
+  dbCreateTable: () => {
+    sql.dbConnect().then(dbInstance => {
+      dbInstance.serialize(() => {
+        dbInstance.run(
           'CREATE TABLE IF NOT EXISTS "DISC" ("DISC_ID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "GAME_ID" INTEGER NOT NULL, "DISC_NUMBER" INTEGER NOT NULL,BASENAME TEXT)',
           (result, err) => {
             if (err) {
@@ -23,7 +20,7 @@ let sqliteDB = {
             log('Created "DISC" table');
           }
         );
-        db.run(
+        dbInstance.run(
           'CREATE TABLE IF NOT EXISTS "GAME" ("GAME_ID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "GAME_TITLE_STRING" TEXT NULL, "PUBLISHER_NAME" TEXT NULL,"RELEASE_YEAR" INTEGER NOT NULL, "PLAYERS" INTEGER NOT NULL, "RATING_IMAGE" TEXT NULL, "GAME_MANUAL_QR_IMAGE" TEXT NULL, "LINK_GAME_ID" TEXT NULL)',
           (result, err) => {
             if (err) {
@@ -33,33 +30,21 @@ let sqliteDB = {
             log('Created "GAME" table');
           }
         );
-        db.run('CREATE INDEX IF NOT EXISTS "IX_DISC_GAME_ID" ON "DISC" ("GAME_ID")', (result, err) => {
+        dbInstance.run('CREATE INDEX IF NOT EXISTS "IX_DISC_GAME_ID" ON "DISC" ("GAME_ID")', (result, err) => {
           if (err) {
             log(`Error: ${err}`);
             console.log('err ', err);
           }
           log('Created "INDEX" table');
         });
-        // db.run('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [2, 2, 'SLUS-00594'], err => {
-        //   if (err) {
-        //     log(`Error: ${err}`);
-        //     console.log('error ', err);
-        //   }
-        //   log('Inserted values into "DISC" table');
-        // });
-      });
-      return new Promise(resolve => {
-        resolve(db);
       });
     });
   },
-  dbInsert: (sql, values = [], callBack) => {
-    this.dbConnect().then(dbInstance => {
-      let db = dbInstance;
-      db.run(sql, values, callBack);
-      db.close();
+  dbRun: (sqlCommand, data, callback) => {
+    sql.dbConnect().then(dbInstance => {
+      dbInstance.run(sqlCommand, data, callback);
+      log('Ran insert statement');
     });
   }
 };
-
-module.exports = sqliteDB;
+module.exports = sql;

@@ -1,78 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
     <title>NWJS test app</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- <div>
         <label for="fileInput">Choose file</label>
         <input id="fileInput" type="file">
     </div> -->
     <div id="container">
-        <form id="iniForm" onsubmit="createIniFile();return false">
-            <div>
-                <label for="title">
-                    Enter Game Title
-                </label>
-                <input type="text" id="title">
-            </div>
-            <div>
-                <label for="publisher">
-                    Enter Publisher Name;
-                </label>
-                <select name="publisher" id="publisher">
-                    <option value="Disney Interactive">Disney Interactive</option>
-                    <option value="Konami">Konami</option>
-                    <option value="Midway Games">Midway Games</option>
-                    <option value="Snk">Snk</option>
-                    <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
-                    <option value="Square Soft">Square Soft</option>
-                    <option value="Takara">Takara</option>
-                </select>
-                <!-- <input type="text" id="publisher"> -->
-            </div>
-            <div>
-                <label for="players">
-                    Enter Number of Players
-                </label>
-                <select name="players" id="players">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-                <!-- <input value="1" type="number" id="players"> -->
-            </div>
-            <div>
-                <label for="year">
-                    Enter Year
-                </label>
-                <input value="1990" type="text" id="year">
-            </div>
-            <div>
-                <label for="workdirectory" class="file-label">
-                    Select Game Directory
-                </label>
-                <input required type="file" nwdirectory id="workdirectory">
-            </div>
-            <div>
-                <label for="discs" class="file-label">
-                    Select "*.cue(s)"
-                </label>
-                <input required type="file" id="discs" multiple="multiple">
-            </div>
-            <div>
-                <button type="submit">Create</button>
-                <button type="button">Cancel</button>
-            </div>
-        </form>
+      <form id="iniForm" onsubmit="createIniFile();return false">
+        <div><label for="title"> Enter Game Title </label> <input type="text" id="title" /></div>
+        <div>
+          <label for="publisher"> Enter Publisher Name; </label>
+          <select name="publisher" id="publisher">
+            <option value="Disney Interactive">Disney Interactive</option>
+            <option value="Konami">Konami</option>
+            <option value="Midway Games">Midway Games</option>
+            <option value="Snk">Snk</option>
+            <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
+            <option value="Square Soft">Square Soft</option>
+            <option value="Takara">Takara</option>
+          </select>
+          <!-- <input type="text" id="publisher"> -->
+        </div>
+        <div>
+          <label for="players"> Enter Number of Players </label>
+          <select name="players" id="players">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+          <!-- <input value="1" type="number" id="players"> -->
+        </div>
+        <div><label for="year"> Enter Year </label> <input value="1990" type="text" id="year" /></div>
+        <div>
+          <label for="workdirectory" class="file-label"> Select Game Directory </label>
+          <input required type="file" nwdirectory id="workdirectory" />
+        </div>
+        <div>
+          <label for="discs" class="file-label"> Select "*.cue(s)" </label> <input required type="file" id="discs" multiple="multiple" />
+        </div>
+        <div><button id="createButton" type="button">Create</button> <button type="button">Cancel</button></div>
+      </form>
     </div>
     <script src="./main.js"></script>
-</body>
-
+  </body>
 </html>

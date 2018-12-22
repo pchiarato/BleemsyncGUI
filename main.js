@@ -2,7 +2,7 @@ let fs = require('fs');
 let gui = require('nw.gui');
 let log = require('./utilities/log');
 let sql = require('./db/sql');
-
+sql.dbCreateTable();
 let menuBar = new nw.Menu({ type: 'menubar' });
 let fileSubMenu = new nw.Menu();
 fileSubMenu.append(
@@ -86,8 +86,14 @@ function getEl(id) {
   let el = document.getElementById(id);
   return el;
 }
+let createButton = getEl('createButton');
+createButton.addEventListener('click', e => {
+  createIniFile();
+});
+
 function createIniFile() {
   let discList = [];
+  let folderNumber;
   let discs = getEl('discs').value;
   if (/;/.test(discs)) {
     let multipleDiscs = discs.split(';');
@@ -129,7 +135,7 @@ function createIniFile() {
     if (err) {
       throw new Error('Error while reading directory ', err);
     }
-    let folderNumber = files.length + 1;
+    folderNumber = files.length + 1;
     let target = `${workDirectory}/${folderNumber}/GameData`;
     fs.mkdir(target, { recursive: true }, err => {
       if (err) {
@@ -145,45 +151,29 @@ function createIniFile() {
           }
         });
       });
-    });
-    console.log('files => ', files);
-  });
-  if (discList.length > 0) {
-    discList.forEach(f, i => {
-      let data = [folderNumber, i + 1, f];
-      sql.dbSetup().then(_ => {
-        sql.dbInsert('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', data, err => {
+      if (discList.length > 0) {
+        discList.forEach((f, i) => {
+          let diskNumber = i + 1;
+          let data = [folderNumber, diskNumber, f];
+          sql.dbRun('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', data, err => {
+            if (err) {
+              log('SQL ERROR - ', err);
+              console.log(err);
+            }
+            log('Inserted data into Disc');
+          });
+          console.log('file name ', f);
+        });
+      } else {
+        sql.dbRun('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 1, discs], err => {
           if (err) {
             log('SQL ERROR - ', err);
-            console.log(err);
+            console.log('Error ', err);
           }
           log('Inserted data into Disc');
         });
-        console.log('file name ', f);
-      });
+      }
     });
-  } else {
-    sql.dbSetup().then(_ => {
-      sql.dbInsert('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 1, discs], err => {
-        if (err) {
-          log('SQL ERROR - ', err);
-          console.log('Error ', err);
-        }
-        log('Inserted data into Disc');
-      });
-    });
-  }
-  // END:TODO
-  // sql();
-
-  // db.run('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 2, 'SLUS-00594'], err => {
-  //   if (err) {
-  //     console.log('error ', err);
-  //   }
-  // });
-  // insert Game.ini info into the db
+    console.log('files => ', files);
+  });
 }
-
-//v // Remove the tray
-// tray.remove();
-// tray = null;
