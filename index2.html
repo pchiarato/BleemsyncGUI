@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <title>NWJS test app</title>
+  </head>
+
+  <body>
+    <div id="container" class="container-fluid">
+      <div class="card">
+        <form id="iniForm" class="col-sm-12" onsubmit="createIniFile();return false">
+          <div id="form-spacer"></div>
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 form-group">
+              <label for="workdirectory" class="btn btn-info btn-file"><i class="fas fa-folder-plus"></i> Select Game Dir </label>
+              <input required type="file" nwdirectory id="workdirectory" />
+              <label for="discs" class="btn btn-info btn-file"><i class="fas fa-file"></i> Select "*.cue(s)"</label>
+              <input required type="file" id="discs" multiple="multiple" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-plus-circle"></i></span>
+                </div>
+                <input class="form-control" placeholder="Enter Game Title" type="text" id="title" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 form-group">
+              <!-- <label for="publisher"> Enter Publisher Name; </label> -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-plus-circle"></i></span>
+                </div>
+                <select class="form-control" name="publisher" id="publisher">
+                  <option value="" disabled selected>Enter Publisher Name</option>
+                  <option value="Disney Interactive">Disney Interactive</option>
+                  <option value="Konami">Konami</option>
+                  <option value="Midway Games">Midway Games</option>
+                  <option value="Snk">Snk</option>
+                  <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
+                  <option value="Square Soft">Square Soft</option>
+                  <option value="Takara">Takara</option>
+                </select>
+              </div>
+              <!-- <input type="text" id="publisher"> -->
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 form-group">
+              <!-- <label for="players"> Enter Number of Players </label> -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-plus-circle"></i></span>
+                </div>
+                <select name="players" id="players" class="form-control">
+                  <option value="" disabled selected>Enter Number of Players</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2"><i class="fas fa-plus-circle"></i></span>
+                </div>
+                <input placeholder="Enter Release Year" type="text" id="year" class="form-control" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2 form-group">
+              <div>
+                <button id="createButton" class="btn btn-info" type="button"><i class="fas fa-play-circle"></i> Start Process</button>
+                <button class="btn btn-danger" type="button"><i class="fas fa-ban"></i> Cancel Operation</button>
+              </div>
+            </div>
+          </div>
+          <div class="row"></div>
+        </form>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>

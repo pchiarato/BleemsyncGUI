@@ -2,7 +2,7 @@
   "name": "nw-js-app",
   "version": "1.0.0",
   "description": "test app using nwjs",
-  "main": "index.html",
+  "main": "index2.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,8 @@
     "title": "PS CLASSIC BLEEMSYNC UTILITY V0.1",
     "toolbar": true,
     "frame": true,
-    "width": 580,
-    "height": 430
+    "width": 960,
+    "height": 810
   },
   "author": "Phillip Chiarato",
   "license": "ISC",

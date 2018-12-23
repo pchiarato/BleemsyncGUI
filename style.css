@@ -1,58 +1,59 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto Slab', serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
 }
 
 body {
-    background-color: rgb(00,127,118);
+  background-color: rgb(00, 127, 118);
 }
 #container {
-    margin:0 auto;
-    display: flex;
+  margin: 0 auto;
+  display: flex;
 }
 
 #container form {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 #container form div {
-    margin: 0 auto;
-    padding: 4px;
+  margin: 0 auto;
+  padding: 4px;
 }
 
 #container form label {
-    display: block;
-    padding: 0px 0px 6px 0px;
-    font-weight: 600;
-    text-align: center;
-    color: rgb(0,255,235);;
+  display: block;
+  padding: 0px 0px 6px 0px;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(0, 255, 235);
 }
 
 .file-label {
-    padding: 6px;
-    text-align: center;
-    border: 1px solid rgb(0,64,59);
-    border-radius: 6px;
-    background-color: #00ddcc;
-    font-size: 1em;
-    width: 245px;
-    height: 32px;
-    color: white !important;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid rgb(0, 64, 59);
+  border-radius: 6px;
+  background-color: #00ddcc;
+  font-size: 1em;
+  width: 245px;
+  height: 32px;
+  color: white !important;
 }
 
-#container form input[type=text], select {
-    border-radius: 6px;
-    width: 245px;
-    height: 32px;
-    border: 1px solid rgb(0,64,59);
-    padding: 0 6px;
+#container form input[type='text'],
+select {
+  border-radius: 6px;
+  width: 245px;
+  height: 32px;
+  border: 1px solid rgb(0, 64, 59);
+  padding: 0 6px;
 }
 
-#container form input[type=file] {
-    display: none;
+#container form input[type='file'] {
+  display: none;
 }
 
 /* #container form select {
@@ -64,14 +65,14 @@ body {
 } */
 
 #container form button {
-    padding: 6px;
-    /* border: none; */
-    border: 1px solid rgb(0,64,59);
-    text-align: center;
-    border-radius: 6px;
-    background-color: #00ddcc;
-    font-size: 1em;
-    font-weight: 700;
-    width: 120px;
-    color: white;
+  padding: 6px;
+  /* border: none; */
+  border: 1px solid rgb(0, 64, 59);
+  text-align: center;
+  border-radius: 6px;
+  background-color: #00ddcc;
+  font-size: 1em;
+  font-weight: 700;
+  width: 120px;
+  color: white;
 }
