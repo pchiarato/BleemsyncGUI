@@ -19,10 +19,14 @@
           <div id="form-spacer"></div>
           <div class="row">
             <div class="col-sm-8 offset-sm-2 form-group">
+              <label for="usbDrive" class="btn btn-info btn-file"><i class="fas fa-folder-plus"></i> Select Usb Drive </label>
+              <input required type="file" nwdirectory id="usbDrive" />
               <label for="workdirectory" class="btn btn-info btn-file"><i class="fas fa-folder-plus"></i> Select Game Dir </label>
               <input required type="file" nwdirectory id="workdirectory" />
               <label for="discs" class="btn btn-info btn-file"><i class="fas fa-file"></i> Select "*.cue(s)"</label>
               <input required type="file" id="discs" multiple="multiple" />
+              <label for="gameCover" class="btn btn-info btn-file"><i class="fas fa-file-image"></i> Select Cover Img</label>
+              <input required type="file" id="gameCover" />
             </div>
           </div>
           <div class="row">

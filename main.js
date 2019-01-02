@@ -117,6 +117,8 @@ function createIniFile() {
   let publisher = getEl('publisher').value;
   let players = getEl('players').value;
   let year = getEl('year').value;
+  let usbDrive = getEl('usbDrive').value;
+  console.log('usb drive ', usbDrive);
   console.log(discs, title, players, year);
   // TODO: separate this block into an outer function/file
   // the following block of code writes out a file called Game.ini with the needed information for the database file.
@@ -151,27 +153,52 @@ function createIniFile() {
           }
         });
       });
+      let gameSqlData = [title, publisher, year, players, 'CERO_A', 'QR_Code_GM', ''];
       if (discList.length > 0) {
         discList.forEach((f, i) => {
           let diskNumber = i + 1;
           let data = [folderNumber, diskNumber, f];
           sql.dbRun('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', data, err => {
             if (err) {
-              log('SQL ERROR - ', err);
+              log(`SQL ERROR -  ${err}`);
               console.log(err);
             }
             log('Inserted data into Disc');
           });
           console.log('file name ', f);
         });
+        sql.dbRun(
+          `INSERT INTO GAME(
+          GAME_TITLE_STRING,PUBLISHER_NAME,RELEASE_YEAR,PLAYERS,RATING_IMAGE,
+          GAME_MANUAL_QR_IMAGE,LINK_GAME_ID) VALUES (?,?,?,?,?,?,?)`,
+          gameSqlData,
+          err => {
+            if (err) {
+              log(`SQL ERROR -  ${err}`);
+              console.log(err);
+            }
+          }
+        );
       } else {
         sql.dbRun('INSERT INTO DISC(GAME_ID,DISC_NUMBER,BASENAME) VALUES (?,?,?)', [folderNumber, 1, discs], err => {
           if (err) {
-            log('SQL ERROR - ', err);
+            log(`SQL ERROR -  ${err}`);
             console.log('Error ', err);
           }
           log('Inserted data into Disc');
         });
+        sql.dbRun(
+          `INSERT INTO GAME(
+          GAME_TITLE_STRING,PUBLISHER_NAME,RELEASE_YEAR,PLAYERS,RATING_IMAGE,
+          GAME_MANUAL_QR_IMAGE,LINK_GAME_ID) VALUES (?,?,?,?,?,?,?)`,
+          gameSqlData,
+          err => {
+            if (err) {
+              log(`SQL ERROR -  ${err}`);
+              console.log(err);
+            }
+          }
+        );
       }
     });
     console.log('files => ', files);

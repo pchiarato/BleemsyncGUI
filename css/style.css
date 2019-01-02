@@ -27,10 +27,17 @@ body {
 #discs {
   display: none;
 }
+#usbDrive {
+  display: none;
+}
+#gameCover {
+  display: none;
+}
 
 .btn-file {
   position: relative;
   overflow: hidden;
+  width: 182px;
 }
 #form-spacer {
   margin-top: 20px;
