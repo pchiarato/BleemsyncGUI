@@ -1,65 +1,96 @@
-2018-12-23T15:47:19.071Z: Ran insert statement
-2018-12-23T15:47:19.071Z: Ran insert statement
-2018-12-23T15:47:19.071Z: Ran insert statement
-2018-12-23T15:47:19.084Z: Inserted data into Disc
-2018-12-23T15:47:19.104Z: Inserted data into Disc
-2018-12-23T15:47:58.656Z: Ran insert statement
-2018-12-23T15:47:58.656Z: Ran insert statement
-2018-12-23T15:47:58.669Z: Inserted data into Disc
-2018-12-23T15:50:03.617Z: Created "DISC" table
-2018-12-23T15:50:03.637Z: Created "GAME" table
-2018-12-23T15:50:03.721Z: Created "INDEX" table
-2018-12-23T15:51:16.835Z: Ran insert statement
-2018-12-23T15:51:16.835Z: Ran insert statement
-2018-12-23T15:51:16.835Z: Ran insert statement
-2018-12-23T15:51:16.852Z: Inserted data into Disc
-2018-12-23T15:51:16.899Z: Inserted data into Disc
-2018-12-23T15:51:57.640Z: Ran insert statement
-2018-12-23T15:51:57.641Z: Ran insert statement
-2018-12-23T15:51:57.659Z: Inserted data into Disc
-2018-12-26T18:36:25.525Z: Created "DISC" table
-2018-12-26T18:36:25.527Z: Created "GAME" table
-2018-12-26T18:36:25.528Z: Created "INDEX" table
-2018-12-26T18:37:05.869Z: Created "DISC" table
-2018-12-26T18:37:05.872Z: Created "GAME" table
-2018-12-26T18:37:05.875Z: Created "INDEX" table
-2018-12-26T18:39:37.236Z: Created "DISC" table
-2018-12-26T18:39:37.243Z: Created "GAME" table
-2018-12-26T18:39:37.244Z: Created "INDEX" table
-2018-12-26T18:41:12.443Z: Created "DISC" table
-2018-12-26T18:41:12.446Z: Created "GAME" table
-2018-12-26T18:41:12.446Z: Created "INDEX" table
-2018-12-26T18:42:19.028Z: Created "DISC" table
-2018-12-26T18:42:19.100Z: Created "GAME" table
-2018-12-26T18:42:19.110Z: Created "INDEX" table
-2018-12-26T18:43:26.097Z: Ran insert statement
-2018-12-26T18:43:26.099Z: Ran insert statement
-2018-12-26T18:43:26.099Z: Ran insert statement
-2018-12-26T18:43:26.107Z: Inserted data into Disc
-2018-12-26T18:43:26.116Z: Inserted data into Disc
-2019-01-02T18:03:45.976Z: Created "DISC" table
-2019-01-02T18:03:45.984Z: Created "GAME" table
-2019-01-02T18:03:45.987Z: Created "INDEX" table
-2019-01-02T18:05:00.700Z: Ran insert statement
-2019-01-02T18:05:00.701Z: Ran insert statement
-2019-01-02T18:05:00.703Z: Ran insert statement
-2019-01-02T18:05:00.721Z: Inserted data into Disc
-2019-01-02T18:05:00.738Z: Inserted data into Disc
-2019-01-02T18:09:09.944Z: Created "DISC" table
-2019-01-02T18:09:09.958Z: Created "GAME" table
-2019-01-02T18:09:10.053Z: Created "INDEX" table
-2019-01-02T18:10:37.777Z: Created "DISC" table
-2019-01-02T18:10:37.877Z: Created "GAME" table
-2019-01-02T18:10:37.878Z: Created "INDEX" table
-2019-01-02T18:11:45.523Z: Created "DISC" table
-2019-01-02T18:11:45.524Z: Created "GAME" table
-2019-01-02T18:11:45.528Z: Created "INDEX" table
-2019-01-02T18:13:04.319Z: Created "DISC" table
-2019-01-02T18:13:04.322Z: Created "GAME" table
-2019-01-02T18:13:04.324Z: Created "INDEX" table
-2019-01-02T18:13:45.202Z: Created "DISC" table
-2019-01-02T18:13:45.204Z: Created "GAME" table
-2019-01-02T18:13:45.206Z: Created "INDEX" table
-2019-01-02T18:14:37.029Z: Created "DISC" table
-2019-01-02T18:14:37.032Z: Created "GAME" table
-2019-01-02T18:14:37.032Z: Created "INDEX" table
+2019-01-03T16:39:08.690Z: Created "DISC" table
+2019-01-03T16:39:08.692Z: Created "GAME" table
+2019-01-03T16:39:08.694Z: Created "INDEX" table
+2019-01-03T16:39:32.615Z: Ran insert statement
+2019-01-03T16:39:32.615Z: Ran insert statement
+2019-01-03T16:39:32.616Z: Ran insert statement
+2019-01-03T16:39:32.640Z: Inserted data into Disc
+2019-01-03T16:39:32.652Z: Inserted data into Disc
+2019-01-03T16:41:23.136Z: Created "DISC" table
+2019-01-03T16:41:23.142Z: Created "GAME" table
+2019-01-03T16:41:23.144Z: Created "INDEX" table
+2019-01-03T16:43:14.873Z: Ran insert statement
+2019-01-03T16:43:14.873Z: Ran insert statement
+2019-01-03T16:43:14.874Z: Ran insert statement
+2019-01-03T16:43:14.891Z: Inserted data into Disc
+2019-01-03T16:43:14.897Z: Inserted data into Disc
+2019-01-03T22:56:35.093Z: Created "DISC" table
+2019-01-03T22:56:35.098Z: Created "GAME" table
+2019-01-03T22:56:35.099Z: Created "INDEX" table
+2019-01-03T22:57:05.689Z: Ran insert statement
+2019-01-03T22:57:05.689Z: Ran insert statement
+2019-01-03T22:57:05.689Z: Ran insert statement
+2019-01-03T22:57:05.724Z: Inserted data into Disc
+2019-01-03T22:57:05.745Z: Inserted data into Disc
+2019-01-04T21:33:29.620Z: Created "DISC" table
+2019-01-04T21:33:29.628Z: Created "GAME" table
+2019-01-04T21:33:29.637Z: Created "INDEX" table
+2019-01-04T21:34:07.818Z: Ran insert statement
+2019-01-04T21:34:07.818Z: Ran insert statement
+2019-01-04T21:34:07.819Z: Ran insert statement
+2019-01-04T21:34:07.852Z: Inserted data into Disc
+2019-01-04T21:34:07.869Z: Inserted data into Disc
+2019-01-04T21:36:22.506Z: Created "DISC" table
+2019-01-04T21:36:22.509Z: Created "GAME" table
+2019-01-04T21:36:22.511Z: Created "INDEX" table
+2019-01-04T21:37:13.589Z: Ran insert statement
+2019-01-04T21:37:13.590Z: Ran insert statement
+2019-01-04T21:37:13.591Z: Ran insert statement
+2019-01-04T21:37:13.635Z: Inserted data into Disc
+2019-01-04T21:37:13.635Z: Inserted data into Disc
+2019-01-04T21:49:04.268Z: Created "DISC" table
+2019-01-04T21:49:04.275Z: Created "GAME" table
+2019-01-04T21:49:04.276Z: Created "INDEX" table
+2019-01-04T21:49:44.343Z: Ran insert statement
+2019-01-04T21:49:44.344Z: Ran insert statement
+2019-01-04T21:49:44.345Z: Ran insert statement
+2019-01-04T21:49:44.364Z: Inserted data into Disc
+2019-01-04T21:49:44.370Z: Inserted data into Disc
+2019-01-04T21:51:30.436Z: Created "DISC" table
+2019-01-04T21:51:30.439Z: Created "GAME" table
+2019-01-04T21:51:30.439Z: Created "INDEX" table
+2019-01-04T21:52:00.109Z: Ran insert statement
+2019-01-04T21:52:00.109Z: Ran insert statement
+2019-01-04T21:52:00.110Z: Ran insert statement
+2019-01-04T21:52:00.129Z: Inserted data into Disc
+2019-01-04T21:52:00.156Z: Inserted data into Disc
+2019-01-04T21:53:33.896Z: Created "DISC" table
+2019-01-04T21:53:33.898Z: Created "GAME" table
+2019-01-04T21:53:33.900Z: Created "INDEX" table
+2019-01-04T21:54:10.938Z: Ran insert statement
+2019-01-04T21:54:10.939Z: Ran insert statement
+2019-01-04T21:54:10.939Z: Ran insert statement
+2019-01-04T21:54:10.957Z: Inserted data into Disc
+2019-01-04T21:54:10.999Z: Inserted data into Disc
+2019-01-04T21:59:38.868Z: Created "DISC" table
+2019-01-04T21:59:38.870Z: Created "GAME" table
+2019-01-04T21:59:38.873Z: Created "INDEX" table
+2019-01-04T22:00:06.229Z: Ran insert statement
+2019-01-04T22:00:06.230Z: Ran insert statement
+2019-01-04T22:00:06.231Z: Ran insert statement
+2019-01-04T22:00:06.258Z: Inserted data into Disc
+2019-01-04T22:00:06.268Z: Inserted data into Disc
+2019-01-04T22:01:38.493Z: Created "DISC" table
+2019-01-04T22:01:38.577Z: Created "GAME" table
+2019-01-04T22:01:38.580Z: Created "INDEX" table
+2019-01-04T22:02:07.145Z: Ran insert statement
+2019-01-04T22:02:07.145Z: Ran insert statement
+2019-01-04T22:02:07.146Z: Ran insert statement
+2019-01-04T22:02:07.178Z: Inserted data into Disc
+2019-01-04T22:02:07.210Z: Inserted data into Disc
+2019-01-04T22:05:42.819Z: Created "DISC" table
+2019-01-04T22:05:42.825Z: Created "GAME" table
+2019-01-04T22:05:42.827Z: Created "INDEX" table
+2019-01-04T22:06:27.878Z: Ran insert statement
+2019-01-04T22:06:27.877Z: Ran insert statement
+2019-01-04T22:06:27.878Z: Ran insert statement
+2019-01-04T22:06:27.909Z: Inserted data into Disc
+2019-01-04T22:06:27.911Z: Inserted data into Disc
+2019-01-04T22:07:59.277Z: Created "DISC" table
+2019-01-04T22:07:59.280Z: Created "GAME" table
+2019-01-04T22:07:59.283Z: Created "INDEX" table
+2019-01-04T22:08:29.022Z: Ran insert statement
+2019-01-04T22:08:29.022Z: Ran insert statement
+2019-01-04T22:08:29.023Z: Ran insert statement
+2019-01-04T22:08:29.045Z: Inserted data into Disc
+2019-01-04T22:08:29.053Z: Inserted data into Disc

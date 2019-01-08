@@ -2,6 +2,7 @@ let fs = require('fs');
 let gui = require('nw.gui');
 let log = require('./utilities/log');
 let sql = require('./db/sql');
+let path = require('path');
 sql.dbCreateTable();
 let menuBar = new nw.Menu({ type: 'menubar' });
 let fileSubMenu = new nw.Menu();
@@ -92,7 +93,7 @@ createButton.addEventListener('click', e => {
 });
 
 function createIniFile() {
-  let discList = [];
+  const discList = [];
   let folderNumber;
   let discs = getEl('discs').value;
   if (/;/.test(discs)) {
@@ -118,6 +119,7 @@ function createIniFile() {
   let players = getEl('players').value;
   let year = getEl('year').value;
   let usbDrive = getEl('usbDrive').value;
+  let gameCover = getEl('gameCover').value;
   console.log('usb drive ', usbDrive);
   console.log(discs, title, players, year);
   // TODO: separate this block into an outer function/file
@@ -138,7 +140,7 @@ function createIniFile() {
       throw new Error('Error while reading directory ', err);
     }
     folderNumber = files.length + 1;
-    let target = `${workDirectory}/${folderNumber}/GameData`;
+    const target = path.resolve(`${workDirectory}/${folderNumber}/GameData`);
     fs.mkdir(target, { recursive: true }, err => {
       if (err) {
         throw new Error('error ', err);
@@ -151,6 +153,32 @@ function createIniFile() {
           if (err) {
             throw new Error('Error while coping "pcsx.cfg" file ', err);
           }
+          // rename gameCover file if any.
+          if (gameCover) {
+            let gameCoverImage = gameCover.split('\\').pop();
+            let coverImagePath = path.resolve(gameCover.replace(gameCoverImage, ''));
+            console.log('path ', coverImagePath + '\\' + gameCoverImage);
+            console.log('discList.length ', discList.length);
+            console.log('target ', target);
+            if (discList.length > 0) {
+              let imgName = `${distList[0].split('.')[0]}.jpg`;
+              console.log('if to');
+              fs.copyFile(coverImagePath, `${target}\\${imgName}`, err => {
+                if (err) {
+                  console.log(err);
+                  throw new Error('Error while processing game cover ', err);
+                }
+              });
+            } else {
+              let imgName = `${discs.split('.')[0]}.jpg`;
+              console.log('else to');
+              fs.copyFile(coverImagePath, `${target}\\${imgName}`, err => {
+                if (err) {
+                  throw new Error('Error while processing game cover ', err);
+                }
+              });
+            }
+          } // end of gameCover if block
         });
       });
       let gameSqlData = [title, publisher, year, players, 'CERO_A', 'QR_Code_GM', ''];
